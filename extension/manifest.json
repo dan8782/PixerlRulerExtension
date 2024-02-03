@@ -1,0 +1,42 @@
+{
+    "manifest_version": 3,
+    "name": "PixelRuler",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "tabs",
+        "contextMenus",
+        "clipboardWrite"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content-script.js"
+            ]
+        }
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "externally_connectable": {
+        "matches": ["*://*.google.com/*"]
+    },
+    "web_accessible_resources": [
+        {
+          "resources": ["img/cursor.png",
+            "img/2.png"
+          ],
+          "matches": ["<all_urls>"]
+        }
+      ]
+}
